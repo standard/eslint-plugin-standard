@@ -1,0 +1,31 @@
+{
+  "name": "eslint-plugin-standard",
+  "version": "1.0.0",
+  "description": "ESlint Plugin for the Standard Linter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xjamundx/eslint-plugin-standard.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
+  "author": "Jamund Ferguson <jamund@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xjamundx/eslint-plugin-standard/issues"
+  },
+  "homepage": "https://github.com/xjamundx/eslint-plugin-standard#readme",
+  "devDependencies": {
+    "eslint": "^0.24.1",
+    "eslint-tester": "^0.8.2",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "requireindex": "^1.1.0"
+  }
+}
