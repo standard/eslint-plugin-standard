@@ -12,6 +12,8 @@
 var eslint = require("eslint"),
 	ESLintTester = require("eslint-tester");
 
+var ecma = { destructuring: true, modules: true };
+
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -20,6 +22,20 @@ var eslintTester = new ESLintTester(eslint.linter);
 eslintTester.addRuleTest("rules/array-bracket-even-spacing", {
 
 	valid: [
+
+		// either
+		{ code: "var x = [ a ]", options: ["either"] },
+		{ code: "var x = [a]", options: ["either"] },
+		{ code: "var x = [a,b,c]", options: ["either"] },
+		{ code: "var x = [ a,b,c ]", options: ["either"] },
+		{ code: "var x = [\na,b,c\n]", options: ["either"] },
+		{ code: "var x = [\n\ta,b,c\n]", options: ["either"] },
+		{ code: 'var foo = [];', options: ["either"] },
+		{ code: "var [x] = y", options: ["either"], ecmaFeatures: ecma },
+		{ code: "var [ x ] = y", options: ["either"], ecmaFeatures: ecma },
+		{ code: "var [\nx\n] = y", options: ["either"], ecmaFeatures: ecma },
+		{ code: "var [\n\tx\n] = y", options: ["either"], ecmaFeatures: ecma },
+
 		{ code: "var foo = obj[ 1 ]", options: ["always"] },
 		{ code: "var foo = obj[ 'foo' ];", options: ["always"] },
 		{ code: "var foo = obj[ [ 1, 1 ] ];", options: ["always"] },
@@ -150,6 +166,75 @@ eslintTester.addRuleTest("rules/array-bracket-even-spacing", {
 	],
 
 	invalid: [
+
+		{
+			code: "var [ x] = y",
+			options: ["either"],
+			ecmaFeatures: ecma,
+			errors: [
+				{
+					message: "Expected consistent spacing",
+					type: "ArrayPattern",
+					line: 1,
+					column: 4
+				}
+			]
+
+		},
+		{
+			code: "var [ x,y,z] = y",
+			options: ["either"],
+			ecmaFeatures: ecma,
+			errors: [
+				{
+					message: "Expected consistent spacing",
+					type: "ArrayPattern",
+					line: 1,
+					column: 4
+				}
+			]
+
+		},
+		{
+			code: "var [ x  ] = y",
+			options: ["either"],
+			ecmaFeatures: ecma,
+			errors: [
+				{
+					message: "Expected consistent spacing",
+					type: "ArrayPattern",
+					line: 1,
+					column: 4
+				}
+			]
+		},
+		{
+			code: "var x = [ x, y]",
+			options: ["either"],
+			ecmaFeatures: ecma,
+			errors: [
+				{
+					message: "Expected consistent spacing",
+					type: "ArrayExpression",
+					line: 1,
+					column: 8
+				}
+			]
+		},
+		{
+			code: "var x = [  x, y  ]",
+			options: ["either"],
+			ecmaFeatures: ecma,
+			errors: [
+				{
+					message: "Expected consistent spacing",
+					type: "ArrayExpression",
+					line: 1,
+					column: 8
+				}
+			]
+		},
+
 		// objectsInArrays
 		{
 			code: "var foo = [ { 'bar': 'baz' }, 1,  5];",

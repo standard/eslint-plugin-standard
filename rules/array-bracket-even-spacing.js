@@ -14,6 +14,7 @@
 
 module.exports = function(context) {
 	var spaced = context.options[0] === "always";
+	var either = context.options[0] === "either";
 
 	/**
 	 * Determines whether an option is set, relative to the spacing option.
@@ -27,6 +28,7 @@ module.exports = function(context) {
 	}
 
 	var options = {
+		either: either,
 		spaced: spaced,
 		singleElementException: isOptionSet("singleValue"),
 		objectsInArraysException: isOptionSet("objectsInArrays"),
@@ -102,6 +104,20 @@ module.exports = function(context) {
 	}
 
 	/**
+	 * Checks if a start and end brace in a node are spaced evenly
+	 * and not too long (>1 space)
+	 * @param node
+	 * @param start
+	 * @param end
+	 * @returns {boolean}
+	 */
+	function isEvenlySpacedAndNotTooLong (node, start, end) {
+		var expectedSpace = start[1].range[0] - start[0].range[1]
+		var endSpace = end[1].range[0] - end[0].range[1]
+		return endSpace === expectedSpace && endSpace <= 1;
+	}
+
+	/**
 	 * Validates the spacing around array brackets
 	 * @param {ASTNode} node - The node we're checking for spacing
 	 * @returns {void}
@@ -127,6 +143,22 @@ module.exports = function(context) {
 			options.arraysInArraysException && penultimate.value === "]" ||
 			options.singleElementException && node.elements.length === 1
 				? !options.spaced : options.spaced;
+
+		// we only care about evenly spaced things
+		if (options.either) {
+			// newlines at any point means return
+			if (!isSameLine(first, last)) {
+				return
+			}
+
+			// confirm that the object expression/literal is spaced evenly
+			if (!isEvenlySpacedAndNotTooLong(node, [first, second], [penultimate, last])) {
+				context.report(node, 'Expected consistent spacing')
+			}
+
+			return
+		}
+
 
 		if (isSameLine(first, second)) {
 			if (openingBracketMustBeSpaced && !isSpaced(first, second)) {
