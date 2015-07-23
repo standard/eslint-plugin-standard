@@ -216,6 +216,9 @@ eslintTester.addRuleTest("rules/object-curly-even-spacing", {
 			]
 		},
 
+
+		// import
+
 		{
 			code: "import {bar} from 'foo.js';",
 			options: ["always"],
