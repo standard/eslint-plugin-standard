@@ -4,7 +4,7 @@
   "description": "ESlint Plugin for the Standard Linter",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/"
+    "test": "standard && mocha tests/"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "devDependencies": {
     "eslint": "^0.24.1",
     "eslint-tester": "^0.8.2",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "standard": "^4.5.4"
   },
   "dependencies": {
     "requireindex": "^1.1.0"

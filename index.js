@@ -1,13 +1,12 @@
-"use strict";
+'use strict'
 
-var path = require("path");
+var path = require('path')
 
 module.exports = {
-  rules: require("requireindex")(path.resolve(__dirname, "rules")),
+  rules: require('requireindex')(path.resolve(__dirname, 'rules')),
   rulesConfig: {
-    "object-curly-even-spacing": 0,
-    "computed-property-even-spacing": 0,
-    "array-bracket-even-spacing": 0
+    'object-curly-even-spacing': 0,
+    'computed-property-even-spacing': 0,
+    'array-bracket-even-spacing': 0
   }
-};
-
+}
