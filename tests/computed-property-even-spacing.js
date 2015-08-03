@@ -9,15 +9,15 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var eslint = require('eslint')
-var ESLintTester = require('eslint-tester')
+var RuleTester = require('eslint').RuleTester
+var rule = require('../rules/computed-property-even-spacing')
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter)
-eslintTester.addRuleTest('rules/computed-property-even-spacing', {
+var ruleTester = new RuleTester()
+ruleTester.run('computed-property-even-spacing', rule, {
   valid: [
 
     // even

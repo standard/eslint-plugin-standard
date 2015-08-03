@@ -9,16 +9,16 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var eslint = require('eslint')
-var ESLintTester = require('eslint-tester')
+var RuleTester = require('eslint').RuleTester
+var rule = require('../rules/array-bracket-even-spacing')
 var ecma = { destructuring: true, modules: true }
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint.linter)
-eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
+var ruleTester = new RuleTester()
+ruleTester.run('array-bracket-even-spacing', rule, {
   valid: [
 
     // either
@@ -174,7 +174,7 @@ eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
           message: 'Expected consistent spacing',
           type: 'ArrayPattern',
           line: 1,
-          column: 4
+          column: 5
         }
       ]
 
@@ -188,7 +188,7 @@ eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
           message: 'Expected consistent spacing',
           type: 'ArrayPattern',
           line: 1,
-          column: 4
+          column: 5
         }
       ]
 
@@ -202,7 +202,7 @@ eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
           message: 'Expected consistent spacing',
           type: 'ArrayPattern',
           line: 1,
-          column: 4
+          column: 5
         }
       ]
     },
@@ -215,7 +215,7 @@ eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
           message: 'Expected consistent spacing',
           type: 'ArrayExpression',
           line: 1,
-          column: 8
+          column: 9
         }
       ]
     },
@@ -228,7 +228,7 @@ eslintTester.addRuleTest('rules/array-bracket-even-spacing', {
           message: 'Expected consistent spacing',
           type: 'ArrayExpression',
           line: 1,
-          column: 8
+          column: 9
         }
       ]
     },
