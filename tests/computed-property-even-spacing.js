@@ -79,7 +79,13 @@ ruleTester.run('computed-property-even-spacing', rule, {
 
     // never - unrelated cases
     { code: 'var foo = {};', options: ['never'] },
-    { code: 'var foo = [];', options: ['never'] }
+    { code: 'var foo = [];', options: ['never'] },
+    { code: 'bar[ foo ]', options: ['even'] },
+
+    // even - unrelated cases
+    { code: 'const { a, ...b } = obj', options: ['even'], ecmaFeatures: { blockBindings: true, destructuring: true, experimentalObjectRestSpread: true } },
+    { code: 'func(a, { ...b })', options: ['even'], ecmaFeatures: { destructuring: true, experimentalObjectRestSpread: true } }
+
   ],
 
   invalid: [
