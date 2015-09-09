@@ -22,7 +22,6 @@
   "homepage": "https://github.com/xjamundx/eslint-plugin-standard#readme",
   "devDependencies": {
     "eslint": "^1.0.0",
-    "eslint-tester": "^0.8.2",
     "mocha": "^2.2.5",
     "standard": "^4.5.4"
   },
