@@ -27,7 +27,6 @@
     "standard": "^4.5.4"
   },
   "peerDependencies": {
-    "eslint": "^1.0.0"
   },
   "dependencies": {}
 }
