@@ -205,7 +205,6 @@ module.exports = function (context) {
 
         validateBraceSpacing(node, first, second, penultimate, last)
       }
-
     },
 
     // export {name} from 'yo'
@@ -222,7 +221,6 @@ module.exports = function (context) {
       var last = context.getTokenAfter(lastSpecifier)
 
       validateBraceSpacing(node, first, second, penultimate, last)
-
     },
 
     // var y = {x: 'y'}
@@ -238,7 +236,5 @@ module.exports = function (context) {
 
       validateBraceSpacing(node, first, second, penultimate, last)
     }
-
   }
-
 }

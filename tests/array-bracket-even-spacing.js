@@ -400,11 +400,11 @@ ruleTester.run('array-bracket-even-spacing', rule, {
         type: 'ArrayPattern',
         line: 1
       },
-        {
-          message: "A space is required before ']'",
-          type: 'ArrayPattern',
-          line: 1
-        }]
+      {
+        message: "A space is required before ']'",
+        type: 'ArrayPattern',
+        line: 1
+      }]
     },
     {
       code: 'var [x,y ] = y',
@@ -425,11 +425,11 @@ ruleTester.run('array-bracket-even-spacing', rule, {
         type: 'ArrayPattern',
         line: 1
       },
-        {
-          message: "A space is required before ']'",
-          type: 'ArrayPattern',
-          line: 1
-        }]
+      {
+        message: "A space is required before ']'",
+        type: 'ArrayPattern',
+        line: 1
+      }]
     },
     {
       code: 'var [ ,,,x,,] = y',
@@ -450,11 +450,11 @@ ruleTester.run('array-bracket-even-spacing', rule, {
         type: 'ArrayPattern',
         line: 1
       },
-        {
-          message: "A space is required before ']'",
-          type: 'ArrayPattern',
-          line: 1
-        }]
+      {
+        message: "A space is required before ']'",
+        type: 'ArrayPattern',
+        line: 1
+      }]
     },
     {
       code: 'var [...horse ] = y',

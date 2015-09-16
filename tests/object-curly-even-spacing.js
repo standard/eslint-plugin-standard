@@ -110,7 +110,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var foo = {};', options: ['never'] },
 
     // never - objectsInObjects
-    { code: "var obj = {'foo': {'bar': 1, 'baz': 2} };", options: ['never', {'objectsInObjects': true}]}
+    { code: "var obj = {'foo': {'bar': 1, 'baz': 2} };", options: ['never', {'objectsInObjects': true}] }
 
   ],
 

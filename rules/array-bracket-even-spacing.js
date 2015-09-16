@@ -186,5 +186,4 @@ module.exports = function (context) {
     ArrayPattern: validateArraySpacing,
     ArrayExpression: validateArraySpacing
   }
-
 }

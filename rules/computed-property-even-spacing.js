@@ -111,7 +111,6 @@ module.exports = function (context) {
 
         if (startSpace !== endSpace || startSpace > 1) {
           context.report(node, 'Expected 1 or 0 spaces around "[" and "]"')
-
         }
 
         return
@@ -151,5 +150,4 @@ module.exports = function (context) {
     Property: checkSpacing('key'),
     MemberExpression: checkSpacing('property')
   }
-
 }
