@@ -29,6 +29,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: "var x = {\n a: 'b' \n}", options: ['either'] },
     { code: 'var foo = {};', options: ['either'] },
     { code: 'var {x} = y', options: ['either'], ecmaFeatures: ecma },
+    { code: 'var {} = y', options: ['either'], ecmaFeatures: ecma },
     { code: 'var { x } = y', options: ['either'], ecmaFeatures: ecma },
     { code: 'var {\nx\n} = y', options: ['either'], ecmaFeatures: ecma },
     { code: 'var {\n\tx\n} = y', options: ['either'], ecmaFeatures: ecma },
@@ -49,6 +50,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var { x: { z }, y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
     { code: 'var {\ny,\n} = x', options: ['always'], ecmaFeatures: { destructuring: true } },
     { code: 'var { y, } = x', options: ['always'], ecmaFeatures: { destructuring: true } },
+    { code: 'var {} = x', options: ['always'], ecmaFeatures: { destructuring: true } },
 
     // always - import / export
     { code: "import { door } from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
@@ -56,6 +58,8 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: "export { door } from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
     { code: "import { house, mouse } from 'caravan'", options: ['always'], ecmaFeatures: { modules: true } },
     { code: 'export { door }', options: ['always'], ecmaFeatures: { modules: true } },
+    { code: "import {} from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
+    { code: "export {} from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
     { code: "import 'room'", options: ['always'], ecmaFeatures: { modules: true } },
 
     // always - empty object
