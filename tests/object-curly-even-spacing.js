@@ -12,7 +12,7 @@
 
 var RuleTester = require('eslint').RuleTester
 var rule = require('../rules/object-curly-even-spacing')
-var ecma = { destructuring: true, modules: true }
+var parserOptions = { ecmaVersion: 6, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
@@ -28,12 +28,12 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: "var x = {\n\ta: 'b'\n}", options: ['either'] },
     { code: "var x = {\n a: 'b' \n}", options: ['either'] },
     { code: 'var foo = {};', options: ['either'] },
-    { code: 'var {x} = y', options: ['either'], ecmaFeatures: ecma },
-    { code: 'var {} = y', options: ['either'], ecmaFeatures: ecma },
-    { code: 'var { x } = y', options: ['either'], ecmaFeatures: ecma },
-    { code: 'var {\nx\n} = y', options: ['either'], ecmaFeatures: ecma },
-    { code: 'var {\n\tx\n} = y', options: ['either'], ecmaFeatures: ecma },
-    { code: "import {x} from 'y'", options: ['either'], ecmaFeatures: ecma },
+    { code: 'var {x} = y', options: ['either'], parserOptions: parserOptions },
+    { code: 'var {} = y', options: ['either'], parserOptions: parserOptions },
+    { code: 'var { x } = y', options: ['either'], parserOptions: parserOptions },
+    { code: 'var {\nx\n} = y', options: ['either'], parserOptions: parserOptions },
+    { code: 'var {\n\tx\n} = y', options: ['either'], parserOptions: parserOptions },
+    { code: "import {x} from 'y'", options: ['either'], parserOptions: parserOptions },
 
     // always - object literals
     { code: 'var obj = { foo: bar, baz: qux };', options: ['always'] },
@@ -41,26 +41,26 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var obj = {\nfoo: bar,\nbaz: qux\n};', options: ['always'] },
 
     // always - destructuring
-    { code: 'var { x } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var { x, y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var { x,y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\nx,y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\nx,y\n} = z', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var { x = 10, y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var { x: { z }, y } = y', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\ny,\n} = x', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var { y, } = x', options: ['always'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {} = x', options: ['always'], ecmaFeatures: { destructuring: true } },
+    { code: 'var { x } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { x, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { x,y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\nx,y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\nx,y\n} = z', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { x = 10, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { x: { z }, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\ny,\n} = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { y, } = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {} = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
 
     // always - import / export
-    { code: "import { door } from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "import {\ndoor } from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "export { door } from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "import { house, mouse } from 'caravan'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: 'export { door }', options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "import {} from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "export {} from 'room'", options: ['always'], ecmaFeatures: { modules: true } },
-    { code: "import 'room'", options: ['always'], ecmaFeatures: { modules: true } },
+    { code: "import { door } from 'room'", options: ['always'], parserOptions: parserOptions },
+    { code: "import {\ndoor } from 'room'", options: ['always'], parserOptions: parserOptions },
+    { code: "export { door } from 'room'", options: ['always'], parserOptions: parserOptions },
+    { code: "import { house, mouse } from 'caravan'", options: ['always'], parserOptions: parserOptions },
+    { code: 'export { door }', options: ['always'], parserOptions: parserOptions },
+    { code: "import {} from 'room'", options: ['always'], parserOptions: parserOptions },
+    { code: "export {} from 'room'", options: ['always'], parserOptions: parserOptions },
+    { code: "import 'room'", options: ['always'], parserOptions: parserOptions },
 
     // always - empty object
     { code: 'var foo = {};', options: ['always'] },
@@ -89,26 +89,26 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var obj = {\nfoo: bar,\nbaz: qux\n};', options: ['never'] },
 
     // never - destructuring
-    { code: 'var {x} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {x, y} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {x,y} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\nx,y\n} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {x = 10} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {x = 10, y} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {x: {z}, y} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\nx: {z\n}, y} = y', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {\ny,\n} = x', options: ['never'], ecmaFeatures: { destructuring: true } },
-    { code: 'var {y,} = x', options: ['never'], ecmaFeatures: { destructuring: true } },
+    { code: 'var {x} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x,y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\nx,y\n} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x = 10} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x = 10, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x: {z}, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\nx: {z\n}, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {\ny,\n} = x', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {y,} = x', options: ['never'], parserOptions: { ecmaVersion: 6 } },
 
     // never - import / export
-    { code: "import {door} from 'room'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "export {door} from 'room'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "import {\ndoor} from 'room'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "export {\ndoor\n} from 'room'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "import {house,mouse} from 'caravan'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "import {house, mouse} from 'caravan'", options: ['never'], ecmaFeatures: { modules: true } },
-    { code: 'export {door}', options: ['never'], ecmaFeatures: { modules: true } },
-    { code: "import 'room'", options: ['never'], ecmaFeatures: { modules: true } },
+    { code: "import {door} from 'room'", options: ['never'], parserOptions: parserOptions },
+    { code: "export {door} from 'room'", options: ['never'], parserOptions: parserOptions },
+    { code: "import {\ndoor} from 'room'", options: ['never'], parserOptions: parserOptions },
+    { code: "export {\ndoor\n} from 'room'", options: ['never'], parserOptions: parserOptions },
+    { code: "import {house,mouse} from 'caravan'", options: ['never'], parserOptions: parserOptions },
+    { code: "import {house, mouse} from 'caravan'", options: ['never'], parserOptions: parserOptions },
+    { code: 'export {door}', options: ['never'], parserOptions: parserOptions },
+    { code: "import 'room'", options: ['never'], parserOptions: parserOptions },
 
     // never - empty object
     { code: 'var foo = {};', options: ['never'] },
@@ -124,7 +124,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "import {   x   } from 'y'",
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -138,7 +138,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "import { x   } from 'y'",
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -152,7 +152,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "import { x} from 'y'",
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -166,7 +166,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "import { x} from 'y'",
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -180,7 +180,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var { x} = y',
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -194,7 +194,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var { x  } = y',
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -207,7 +207,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "var x = { x: '10'  }",
       options: ['either'],
-      ecmaFeatures: ecma,
+      parserOptions: parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -223,9 +223,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: "import {bar} from 'foo.js';",
       options: ['always'],
-      ecmaFeatures: {
-        modules: true
-      },
+      parserOptions: parserOptions,
       errors: [
         {
           message: "A space is required after '{'",
@@ -244,9 +242,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'export {bar};',
       options: ['always'],
-      ecmaFeatures: {
-        modules: true
-      },
+      parserOptions: parserOptions,
       errors: [
         {
           message: "A space is required after '{'",
@@ -315,7 +311,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var { a,} = x;',
       options: ['always'],
-      ecmaFeatures: { destructuring: true },
+      parserOptions: { ecmaVersion: 6 },
       errors: [
         {
           message: "A space is required before '}'",
@@ -328,7 +324,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var {a, } = x;',
       options: ['never'],
-      ecmaFeatures: { destructuring: true },
+      parserOptions: { ecmaVersion: 6 },
       errors: [
         {
           message: "There should be no space before '}'",
@@ -488,10 +484,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'export const thing = {value: 1 };',
-      ecmaFeatures: {
-        modules: true,
-        blockBindings: true
-      },
+      parserOptions: parserOptions,
       options: ['always'],
       errors: [
         {
@@ -506,7 +499,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     // destructuring
     {
       code: 'var {x, y} = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['always'],
       errors: [
         {
@@ -525,7 +518,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x, y} = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['always'],
       errors: [
         {
@@ -538,7 +531,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x, y } = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['never'],
       errors: [
         {
@@ -557,7 +550,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var {x, y } = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['never'],
       errors: [
         {
@@ -570,7 +563,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x=10} = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['always'],
       errors: [
         {
@@ -583,7 +576,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var {x=10 } = y',
-      ecmaFeatures: {destructuring: true},
+      parserOptions: { ecmaVersion: 6 },
       options: ['always'],
       errors: [
         {
