@@ -174,6 +174,10 @@ module.exports = function (context) {
   return {
     // var {x} = y
     ObjectPattern: function (node) {
+      if (node.properties.length === 0) {
+        return
+      }
+
       var firstSpecifier = node.properties[0]
       var lastSpecifier = node.properties[node.properties.length - 1]
 
