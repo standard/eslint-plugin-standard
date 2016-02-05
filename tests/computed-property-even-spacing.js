@@ -172,7 +172,8 @@ ruleTester.run('computed-property-even-spacing', rule, {
       errors: [
         {
           message: "There should be no space after '['",
-          type: 'MemberExpression',					line: 1
+          type: 'MemberExpression',
+          line: 1
         },
         {
           message: "There should be no space before ']'",
