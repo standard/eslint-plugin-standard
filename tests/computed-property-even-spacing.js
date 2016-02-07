@@ -91,15 +91,15 @@ ruleTester.run('computed-property-even-spacing', rule, {
   invalid: [
 
     // even
-    { code: "bar[  'foo'  ]", options: ['even'], errors: [1] },
-    { code: "bar['foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[  'foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[ 'foo']", options: ['even'], errors: [1] },
-    { code: "bar[\n'foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[\n'foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[\n'foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[\n\t'foo' ]", options: ['even'], errors: [1] },
-    { code: "bar[\n\t'foo'\n]", options: ['even'], errors: [1] },
+    { code: "bar[  'foo'  ]", options: ['even'], errors: [{ message: 'Expected 1 or 0 spaces around "[" and "]"' }] },
+    { code: "bar['foo' ]", options: ['even'], errors: [{ message: 'Expected 1 or 0 spaces around "[" and "]"' }] },
+    { code: "bar[  'foo' ]", options: ['even'], errors: [{ message: 'Expected 1 or 0 spaces around "[" and "]"' }] },
+    { code: "bar[ 'foo']", options: ['even'], errors: [{ message: 'Expected 1 or 0 spaces around "[" and "]"' }] },
+    { code: "bar[\n'foo' ]", options: ['even'], errors: [{ message: 'Expected "[" and "]" to be on the same line' }] },
+    { code: "bar[\n'foo' ]", options: ['even'], errors: [{ message: 'Expected "[" and "]" to be on the same line' }] },
+    { code: "bar[\n'foo' ]", options: ['even'], errors: [{ message: 'Expected "[" and "]" to be on the same line' }] },
+    { code: "bar[\n\t'foo' ]", options: ['even'], errors: [{ message: 'Expected "[" and "]" to be on the same line' }] },
+    { code: "bar[\n\t'foo'\n]", options: ['even'], errors: [{ message: 'Expected "[" and "]" to be on the same line' }] },
 
     {
       code: 'var foo = obj[ 1];',
