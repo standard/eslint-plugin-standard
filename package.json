@@ -15,6 +15,9 @@
   "peerDependencies": {
     "eslint": "^3.0.0"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "homepage": "https://github.com/xjamundx/eslint-plugin-standard#readme",
   "keywords": [
     "eslint",

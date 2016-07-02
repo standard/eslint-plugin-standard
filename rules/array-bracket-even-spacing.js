@@ -25,7 +25,7 @@ module.exports = {
     docs: {}
   },
 
-  create: function (context) {
+  create: (context) => {
     var spaced = context.options[0] === 'always'
     var either = context.options[0] === 'either'
 
