@@ -24,5 +24,8 @@
   },
   "scripts": {
     "test": "standard && mocha tests/"
+  },
+  "peerDependencies": {
+    "eslint": ">=3.0.0"
   }
 }
