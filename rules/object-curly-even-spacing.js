@@ -132,8 +132,8 @@ module.exports = {
      */
     function validateBraceSpacing (node, first, second, penultimate, last) {
       var closingCurlyBraceMustBeSpaced =
-      options.arraysInObjectsException && penultimate.value === ']' ||
-      options.objectsInObjectsException && penultimate.value === '}'
+      (options.arraysInObjectsException && penultimate.value === ']') ||
+      (options.objectsInObjectsException && penultimate.value === '}')
         ? !options.spaced : options.spaced
 
       // we only care about evenly spaced things

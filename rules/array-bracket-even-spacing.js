@@ -138,15 +138,15 @@ module.exports = {
       var last = context.getLastToken(node)
 
       var openingBracketMustBeSpaced =
-      options.objectsInArraysException && second.value === '{' ||
-      options.arraysInArraysException && second.value === '[' ||
-      options.singleElementException && node.elements.length === 1
+      (options.objectsInArraysException && second.value === '{') ||
+      (options.arraysInArraysException && second.value === '[') ||
+      (options.singleElementException && node.elements.length === 1)
         ? !options.spaced : options.spaced
 
       var closingBracketMustBeSpaced =
-      options.objectsInArraysException && penultimate.value === '}' ||
-      options.arraysInArraysException && penultimate.value === ']' ||
-      options.singleElementException && node.elements.length === 1
+      (options.objectsInArraysException && penultimate.value === '}') ||
+      (options.arraysInArraysException && penultimate.value === ']') ||
+      (options.singleElementException && node.elements.length === 1)
         ? !options.spaced : options.spaced
 
       // we only care about evenly spaced things
