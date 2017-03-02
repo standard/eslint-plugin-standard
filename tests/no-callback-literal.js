@@ -31,7 +31,6 @@ ruleTester.run('no-callback-literal', rule, {
     'callback(undefined)',
     'callback(null)',
     'callback(x)',
-    'callback(false)',
     'callback(new Error("error"))',
     'callback(friendly, data)',
     'callback(null, data)',
@@ -40,7 +39,6 @@ ruleTester.run('no-callback-literal', rule, {
 
     // cb()
     'cb()',
-    'cb(false)',
     'cb(undefined)',
     'cb(null)',
     'cb(null, "super")',
@@ -50,7 +48,6 @@ ruleTester.run('no-callback-literal', rule, {
     'next(undefined)',
     'next(null)',
     'next(null, "super")',
-    'next(false, "super")',
 
     // custom callback
     {
@@ -61,17 +58,20 @@ ruleTester.run('no-callback-literal', rule, {
 
   invalid: [
     // callback
-    { code: 'callback(undefined, "snork")', errors: [{ message: 'Expected null instead found undefined.' }] },
+    { code: 'callback(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
+    { code: 'callback(false, "snork")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'callback("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'callback("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
 
     // cb
-    { code: 'cb(undefined, "snork")', errors: [{ message: 'Expected null instead found undefined.' }] },
+    { code: 'cb(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
+    { code: 'cb(false)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'cb("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'cb("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
 
     // next
-    { code: 'next(undefined, "snork")', errors: [{ message: 'Expected null instead found undefined.' }] },
+    { code: 'next(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
+    { code: 'next(false, "snork")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'next("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'next("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
 

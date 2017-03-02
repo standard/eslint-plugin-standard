@@ -38,7 +38,7 @@ function couldBeError (node) {
       return couldBeError(node.consequent) || couldBeError(node.alternate)
 
     default:
-      return node.value === null || node.value === false
+      return node.value === null
   }
 }
 
@@ -67,7 +67,7 @@ module.exports = {
             context.report(node, 'Unexpected literal in error position of callback.')
           } else if (node.arguments.length > 1 && errorArg.type === 'Identifier') {
             if (errorArg.name === 'undefined') {
-              context.report(node, 'Expected null instead found undefined.')
+              context.report(node, 'Expected "null" instead of "undefined" in error position of callback.')
             }
           }
         }
