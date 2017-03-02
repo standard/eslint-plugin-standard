@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-standard",
   "description": "ESlint Plugin for the Standard Linter",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "Jamund Ferguson <jamund@gmail.com>",
   "bugs": {
     "url": "https://github.com/xjamundx/eslint-plugin-standard/issues"
