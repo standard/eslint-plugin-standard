@@ -43,15 +43,9 @@ ruleTester.run('no-callback-literal', rule, {
     'cb(null)',
     'cb(null, "super")',
 
-    // next()
-    'next()',
-    'next(undefined)',
-    'next(null)',
-    'next(null, "super")',
-
     // custom callback
     {
-      code: 'callback(44); next("55"); power(new Error("super thing")); power(null);',
+      code: 'callback(44); cb("55"); power(new Error("super thing")); power(null);',
       options: [['power']]
     }
   ],
@@ -69,16 +63,10 @@ ruleTester.run('no-callback-literal', rule, {
     { code: 'cb("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'cb("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
 
-    // next
-    { code: 'next(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
-    { code: 'next(false, "snork")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
-    { code: 'next("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
-    { code: 'next("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
-
     // custom callback name
     {
-      code: 'nexty(44)',
-      options: [['nexty']],
+      code: 'next(44)',
+      options: [['next']],
       errors: [{ message: 'Unexpected literal in error position of callback.' }]
     }
   ]

@@ -52,7 +52,7 @@ module.exports = {
   },
 
   create: function (context) {
-    var callbackNames = context.options[0] || ['callback', 'next', 'cb']
+    var callbackNames = context.options[0] || ['callback', 'cb']
 
     function isCallback (name) {
       return callbackNames.indexOf(name) > -1
