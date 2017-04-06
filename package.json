@@ -27,6 +27,6 @@
     "test": "standard && mocha tests/"
   },
   "peerDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": ">=3.19.0"
   }
 }
