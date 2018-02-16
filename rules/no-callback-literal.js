@@ -64,14 +64,10 @@ module.exports = {
 
       CallExpression: function (node) {
         var errorArg = node.arguments[0]
-        if (errorArg && isCallback(node.callee.name)) {
-          if (!couldBeError(errorArg)) {
-            context.report(node, 'Unexpected literal in error position of callback.')
-          } else if (node.arguments.length > 1 && errorArg.type === 'Identifier') {
-            if (errorArg.name === 'undefined') {
-              context.report(node, 'Expected "null" instead of "undefined" in error position of callback.')
-            }
-          }
+        var calleeName = node.callee.name
+
+        if (errorArg && !couldBeError(errorArg) && isCallback(calleeName)) {
+          context.report(node, 'Unexpected literal in error position of callback.')
         }
       }
     }
