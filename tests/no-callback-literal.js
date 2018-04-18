@@ -33,6 +33,7 @@ ruleTester.run('no-callback-literal', rule, {
     'callback(x)',
     'callback(new Error("error"))',
     'callback(friendly, data)',
+    'callback(undefined, data)',
     'callback(null, data)',
     'callback(x, data)',
     'callback(new Error("error"), data)',
@@ -41,6 +42,7 @@ ruleTester.run('no-callback-literal', rule, {
     'cb()',
     'cb(undefined)',
     'cb(null)',
+    'cb(undefined, "super")',
     'cb(null, "super")',
 
     // custom callback
@@ -52,13 +54,11 @@ ruleTester.run('no-callback-literal', rule, {
 
   invalid: [
     // callback
-    { code: 'callback(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
     { code: 'callback(false, "snork")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'callback("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'callback("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
 
     // cb
-    { code: 'cb(undefined, "snork")', errors: [{ message: 'Expected "null" instead of "undefined" in error position of callback.' }] },
     { code: 'cb(false)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'cb("help")', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
     { code: 'cb("help", data)', errors: [{ message: 'Unexpected literal in error position of callback.' }] },
