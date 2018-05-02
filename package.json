@@ -4,7 +4,7 @@
   "version": "3.1.0",
   "author": "Jamund Ferguson <jamund@gmail.com>",
   "bugs": {
-    "url": "https://github.com/xjamundx/eslint-plugin-standard/issues"
+    "url": "https://github.com/standard/eslint-plugin-standard/issues"
   },
   "dependencies": {},
   "devDependencies": {
@@ -12,7 +12,7 @@
     "mocha": "^5.1.1",
     "standard": "*"
   },
-  "homepage": "https://github.com/xjamundx/eslint-plugin-standard#readme",
+  "homepage": "https://github.com/standard/eslint-plugin-standard#readme",
   "keywords": [
     "eslint",
     "eslintplugin"
@@ -21,7 +21,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xjamundx/eslint-plugin-standard.git"
+    "url": "git+https://github.com/standard/eslint-plugin-standard.git"
   },
   "scripts": {
     "test": "standard && mocha tests/"
