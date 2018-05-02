@@ -12,7 +12,7 @@
 module.exports = {
   meta: {
     docs: {
-      url: 'https://github.com/xjamundx/eslint-plugin-standard#rules-explanations'
+      url: 'https://github.com/standard/eslint-plugin-standard#rules-explanations'
     }
   },
 
