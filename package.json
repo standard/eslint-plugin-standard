@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "mocha": "^5.1.1",
     "standard": "*"
   },
@@ -27,6 +27,6 @@
     "test": "standard && mocha tests/"
   },
   "peerDependencies": {
-    "eslint": ">=3.19.0"
+    "eslint": ">=5.0.0"
   }
 }
