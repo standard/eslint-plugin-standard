@@ -12,7 +12,7 @@
 
 var RuleTester = require('eslint').RuleTester
 var rule = require('../rules/object-curly-even-spacing')
-var parserOptions = { ecmaVersion: 6, sourceType: 'module' }
+var parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
@@ -41,16 +41,16 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var obj = {\nfoo: bar,\nbaz: qux\n};', options: ['always'] },
 
     // always - destructuring
-    { code: 'var { x } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var { x, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var { x,y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\nx,y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\nx,y\n} = z', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var { x = 10, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var { x: { z }, y } = y', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\ny,\n} = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var { y, } = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {} = x', options: ['always'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var { x } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var { x, y } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var { x,y } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var {\nx,y } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var {\nx,y\n} = z', options: ['always'], parserOptions: parserOptions },
+    { code: 'var { x = 10, y } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var { x: { z }, y } = y', options: ['always'], parserOptions: parserOptions },
+    { code: 'var {\ny,\n} = x', options: ['always'], parserOptions: parserOptions },
+    { code: 'var { y, } = x', options: ['always'], parserOptions: parserOptions },
+    { code: 'var {} = x', options: ['always'], parserOptions: parserOptions },
 
     // always - import / export
     { code: "import { door } from 'room'", options: ['always'], parserOptions: parserOptions },
@@ -89,16 +89,16 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: 'var obj = {\nfoo: bar,\nbaz: qux\n};', options: ['never'] },
 
     // never - destructuring
-    { code: 'var {x} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {x, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {x,y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\nx,y\n} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {x = 10} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {x = 10, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {x: {z}, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\nx: {z\n}, y} = y', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {\ny,\n} = x', options: ['never'], parserOptions: { ecmaVersion: 6 } },
-    { code: 'var {y,} = x', options: ['never'], parserOptions: { ecmaVersion: 6 } },
+    { code: 'var {x} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {x, y} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {x,y} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {\nx,y\n} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {x = 10} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {x = 10, y} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {x: {z}, y} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {\nx: {z\n}, y} = y', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {\ny,\n} = x', options: ['never'], parserOptions: parserOptions },
+    { code: 'var {y,} = x', options: ['never'], parserOptions: parserOptions },
 
     // never - import / export
     { code: "import {door} from 'room'", options: ['never'], parserOptions: parserOptions },
@@ -311,7 +311,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var { a,} = x;',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [
         {
           message: "A space is required before '}'",
@@ -324,7 +324,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     {
       code: 'var {a, } = x;',
       options: ['never'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [
         {
           message: "There should be no space before '}'",
@@ -499,7 +499,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     // destructuring
     {
       code: 'var {x, y} = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['always'],
       errors: [
         {
@@ -518,7 +518,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x, y} = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['always'],
       errors: [
         {
@@ -531,7 +531,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x, y } = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['never'],
       errors: [
         {
@@ -550,7 +550,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var {x, y } = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['never'],
       errors: [
         {
@@ -563,7 +563,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var { x=10} = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['always'],
       errors: [
         {
@@ -576,7 +576,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     },
     {
       code: 'var {x=10 } = y',
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       options: ['always'],
       errors: [
         {

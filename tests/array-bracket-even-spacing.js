@@ -11,7 +11,7 @@
 
 var RuleTester = require('eslint').RuleTester
 var rule = require('../rules/array-bracket-even-spacing')
-var parserOptions = { ecmaVersion: 6, sourceType: 'module' }
+var parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
@@ -83,16 +83,16 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     { code: "this.db.mappings.insert([\n { alias: 'a', url: 'http://www.amazon.de' },\n { alias: 'g', url: 'http://www.google.de' }\n], function() {});", options: ['always', {singleValue: false, objectsInArrays: true, arraysInArrays: true}] },
 
     // always - destructuring assignment
-    { code: 'var [ x, y ] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [ x,y ] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [ x, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx, y ] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx,,,\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [ ,x, ] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx, ...y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
-    { code: 'var [\nx, ...y ] = z', parserOptions: { ecmaVersion: 6 }, options: ['always'] },
+    { code: 'var [ x, y ] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [ x,y ] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [ x, y\n] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx, y ] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx,,,\n] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [ ,x, ] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx, ...y\n] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [\nx, ...y ] = z', parserOptions: parserOptions, options: ['always'] },
 
     // never
     { code: 'obj[foo]', options: ['never'] },
@@ -113,16 +113,16 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     { code: 'var arr = [\n1,\n2,\n3,\n4];', options: ['never'] },
 
     // never - destructuring assignment
-    { code: 'var [x, y] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [x,y] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [x, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx, y] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx,,,\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [,x,] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx, ...y\n] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
-    { code: 'var [\nx, ...y] = z', parserOptions: { ecmaVersion: 6 }, options: ['never'] },
+    { code: 'var [x, y] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [x,y] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [x, y\n] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx, y] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx,,,\n] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [,x,] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx, ...y\n] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [\nx, ...y] = z', parserOptions: parserOptions, options: ['never'] },
 
     // never - singleValue
     { code: "var foo = [ 'foo' ]", options: ['never', {singleValue: true}] },
@@ -394,7 +394,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [x,y] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -409,7 +409,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [x,y ] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -419,7 +419,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [,,,x,,] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -434,7 +434,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [ ,,,x,,] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required before ']'",
         type: 'ArrayPattern',
@@ -444,7 +444,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [...horse] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -459,7 +459,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [...horse ] = y',
       options: ['always'],
-      parserOptions: { ecmaVersion: 6 },
+      parserOptions: parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
