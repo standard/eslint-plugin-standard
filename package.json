@@ -8,8 +8,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^5.0.0",
-    "mocha": "^5.1.1",
+    "eslint": "^6.0.1",
+    "mocha": "^6.1.4",
     "standard": "*"
   },
   "homepage": "https://github.com/standard/eslint-plugin-standard#readme",
