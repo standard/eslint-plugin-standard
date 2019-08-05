@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^5.0.0",
+    "eslint": "^6.1.0",
     "mocha": "^5.1.1",
     "standard": "*"
   },
