@@ -9,7 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^6.1.0",
-    "mocha": "^5.1.1",
+    "mocha": "^6.2.0",
     "standard": "*"
   },
   "homepage": "https://github.com/standard/eslint-plugin-standard#readme",
