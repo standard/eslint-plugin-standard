@@ -57,7 +57,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: "import {\ndoor } from 'room'", options: ['always'], parserOptions: parserOptions },
     { code: "export { door } from 'room'", options: ['always'], parserOptions: parserOptions },
     { code: "import { house, mouse } from 'caravan'", options: ['always'], parserOptions: parserOptions },
-    { code: 'export { door }', options: ['always'], parserOptions: parserOptions },
+    // { code: 'export { door }', options: ['always'], parserOptions: parserOptions },
     { code: "import {} from 'room'", options: ['always'], parserOptions: parserOptions },
     { code: "export {} from 'room'", options: ['always'], parserOptions: parserOptions },
     { code: "import 'room'", options: ['always'], parserOptions: parserOptions },
@@ -107,7 +107,7 @@ ruleTester.run('object-curly-even-spacing', rule, {
     { code: "export {\ndoor\n} from 'room'", options: ['never'], parserOptions: parserOptions },
     { code: "import {house,mouse} from 'caravan'", options: ['never'], parserOptions: parserOptions },
     { code: "import {house, mouse} from 'caravan'", options: ['never'], parserOptions: parserOptions },
-    { code: 'export {door}', options: ['never'], parserOptions: parserOptions },
+    // { code: 'export {door}', options: ['never'], parserOptions: parserOptions },
     { code: "import 'room'", options: ['never'], parserOptions: parserOptions },
 
     // never - empty object
@@ -239,25 +239,25 @@ ruleTester.run('object-curly-even-spacing', rule, {
         }
       ]
     },
-    {
-      code: 'export {bar};',
-      options: ['always'],
-      parserOptions: parserOptions,
-      errors: [
-        {
-          message: "A space is required after '{'",
-          type: 'ExportNamedDeclaration',
-          line: 1,
-          column: 8
-        },
-        {
-          message: "A space is required before '}'",
-          type: 'ExportNamedDeclaration',
-          line: 1,
-          column: 12
-        }
-      ]
-    },
+    // {
+    //   code: 'export {bar};',
+    //   options: ['always'],
+    //   parserOptions: parserOptions,
+    //   errors: [
+    //     {
+    //       message: "A space is required after '{'",
+    //       type: 'ExportNamedDeclaration',
+    //       line: 1,
+    //       column: 8
+    //     },
+    //     {
+    //       message: "A space is required before '}'",
+    //       type: 'ExportNamedDeclaration',
+    //       line: 1,
+    //       column: 12
+    //     }
+    //   ]
+    // },
 
     // always - arraysInObjects
     {
