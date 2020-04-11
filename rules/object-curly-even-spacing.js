@@ -14,6 +14,7 @@
 
 module.exports = {
   meta: {
+    type: 'layout',
     docs: {
       url: 'https://github.com/standard/eslint-plugin-standard#rules-explanations'
     }
