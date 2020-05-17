@@ -31,7 +31,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     // default - never
     { code: 'obj[foo]' },
     { code: "obj['foo']" },
-    { code: 'var x = {[b]: a}', parserOptions: parserOptions },
+    { code: 'var x = {[b]: a}', parserOptions },
 
     // always
     { code: 'obj[ foo ]', options: ['always'] },
@@ -48,10 +48,10 @@ ruleTester.run('computed-property-even-spacing', rule, {
     { code: 'var foo = obj[ [1, 1] ];', options: ['always'] },
 
     // always - objectLiteralComputedProperties
-    { code: 'var x = {[ "a" ]: a}', options: ['always'], parserOptions: parserOptions },
-    { code: 'var y = {[ x ]: a}', options: ['always'], parserOptions: parserOptions },
-    { code: 'var x = {[ "a" ]() {}}', options: ['always'], parserOptions: parserOptions },
-    { code: 'var y = {[ x ]() {}}', options: ['always'], parserOptions: parserOptions },
+    { code: 'var x = {[ "a" ]: a}', options: ['always'], parserOptions },
+    { code: 'var y = {[ x ]: a}', options: ['always'], parserOptions },
+    { code: 'var x = {[ "a" ]() {}}', options: ['always'], parserOptions },
+    { code: 'var y = {[ x ]() {}}', options: ['always'], parserOptions },
 
     // always - unrelated cases
     { code: 'var foo = {};', options: ['always'] },
@@ -74,10 +74,10 @@ ruleTester.run('computed-property-even-spacing', rule, {
     { code: 'var foo = obj[[ 1, 1 ]];', options: ['never'] },
 
     // never - objectLiteralComputedProperties
-    { code: 'var x = {["a"]: a}', options: ['never'], parserOptions: parserOptions },
-    { code: 'var y = {[x]: a}', options: ['never'], parserOptions: parserOptions },
-    { code: 'var x = {["a"]() {}}', options: ['never'], parserOptions: parserOptions },
-    { code: 'var y = {[x]() {}}', options: ['never'], parserOptions: parserOptions },
+    { code: 'var x = {["a"]: a}', options: ['never'], parserOptions },
+    { code: 'var y = {[x]: a}', options: ['never'], parserOptions },
+    { code: 'var x = {["a"]() {}}', options: ['never'], parserOptions },
+    { code: 'var y = {[x]() {}}', options: ['never'], parserOptions },
 
     // never - unrelated cases
     { code: 'var foo = {};', options: ['never'] },
@@ -85,8 +85,8 @@ ruleTester.run('computed-property-even-spacing', rule, {
     { code: 'bar[ foo ]', options: ['even'] },
 
     // even - unrelated cases
-    { code: 'const { a, ...b } = obj', options: ['even'], parserOptions: parserOptions },
-    { code: 'func(a, { ...b })', options: ['even'], parserOptions: parserOptions }
+    { code: 'const { a, ...b } = obj', options: ['even'], parserOptions },
+    { code: 'func(a, { ...b })', options: ['even'], parserOptions }
 
   ],
 
@@ -227,7 +227,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[a]: b}',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "A space is required after '['",
@@ -244,7 +244,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[a ]: b}',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "A space is required after '['",
@@ -256,7 +256,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[ a]: b}',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "A space is required before ']'",
@@ -270,7 +270,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[ a ]: b}',
       options: ['never'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "There should be no space after '['",
@@ -287,7 +287,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[a ]: b}',
       options: ['never'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "There should be no space before ']'",
@@ -299,7 +299,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[ a]: b}',
       options: ['never'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "There should be no space after '['",
@@ -311,7 +311,7 @@ ruleTester.run('computed-property-even-spacing', rule, {
     {
       code: 'var x = {[ a\n]: b}',
       options: ['never'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: "There should be no space after '['",

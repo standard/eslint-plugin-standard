@@ -29,10 +29,10 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     { code: 'var x = [\na,b,c\n]', options: ['either'] },
     { code: 'var x = [\n\ta,b,c\n]', options: ['either'] },
     { code: 'var foo = [];', options: ['either'] },
-    { code: 'var [x] = y', options: ['either'], parserOptions: parserOptions },
-    { code: 'var [ x ] = y', options: ['either'], parserOptions: parserOptions },
-    { code: 'var [\nx\n] = y', options: ['either'], parserOptions: parserOptions },
-    { code: 'var [\n\tx\n] = y', options: ['either'], parserOptions: parserOptions },
+    { code: 'var [x] = y', options: ['either'], parserOptions },
+    { code: 'var [ x ] = y', options: ['either'], parserOptions },
+    { code: 'var [\nx\n] = y', options: ['either'], parserOptions },
+    { code: 'var [\n\tx\n] = y', options: ['either'], parserOptions },
 
     { code: 'var foo = obj[ 1 ]', options: ['always'] },
     { code: "var foo = obj[ 'foo' ];", options: ['always'] },
@@ -83,16 +83,16 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     { code: "this.db.mappings.insert([\n { alias: 'a', url: 'http://www.amazon.de' },\n { alias: 'g', url: 'http://www.google.de' }\n], function() {});", options: ['always', { singleValue: false, objectsInArrays: true, arraysInArrays: true }] },
 
     // always - destructuring assignment
-    { code: 'var [ x, y ] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [ x,y ] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [ x, y\n] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx, y ] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx,,,\n] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [ ,x, ] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx, ...y\n] = z', parserOptions: parserOptions, options: ['always'] },
-    { code: 'var [\nx, ...y ] = z', parserOptions: parserOptions, options: ['always'] },
+    { code: 'var [ x, y ] = z', parserOptions, options: ['always'] },
+    { code: 'var [ x,y ] = z', parserOptions, options: ['always'] },
+    { code: 'var [ x, y\n] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx, y ] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx, y\n] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx, y\n] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx,,,\n] = z', parserOptions, options: ['always'] },
+    { code: 'var [ ,x, ] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx, ...y\n] = z', parserOptions, options: ['always'] },
+    { code: 'var [\nx, ...y ] = z', parserOptions, options: ['always'] },
 
     // never
     { code: 'obj[foo]', options: ['never'] },
@@ -113,16 +113,16 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     { code: 'var arr = [\n1,\n2,\n3,\n4];', options: ['never'] },
 
     // never - destructuring assignment
-    { code: 'var [x, y] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [x,y] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [x, y\n] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx, y] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx, y\n] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx,,,\n] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [,x,] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx, ...y\n] = z', parserOptions: parserOptions, options: ['never'] },
-    { code: 'var [\nx, ...y] = z', parserOptions: parserOptions, options: ['never'] },
+    { code: 'var [x, y] = z', parserOptions, options: ['never'] },
+    { code: 'var [x,y] = z', parserOptions, options: ['never'] },
+    { code: 'var [x, y\n] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx, y] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx, y\n] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx, y\n] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx,,,\n] = z', parserOptions, options: ['never'] },
+    { code: 'var [,x,] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx, ...y\n] = z', parserOptions, options: ['never'] },
+    { code: 'var [\nx, ...y] = z', parserOptions, options: ['never'] },
 
     // never - singleValue
     { code: "var foo = [ 'foo' ]", options: ['never', { singleValue: true }] },
@@ -168,7 +168,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [ x] = y',
       options: ['either'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -182,7 +182,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [ x,y,z] = y',
       options: ['either'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -196,7 +196,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [ x  ] = y',
       options: ['either'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -209,7 +209,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var x = [ x, y]',
       options: ['either'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -222,7 +222,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var x = [  x, y  ]',
       options: ['either'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [
         {
           message: 'Expected consistent spacing',
@@ -394,7 +394,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [x,y] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -409,7 +409,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [x,y ] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -419,7 +419,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [,,,x,,] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -434,7 +434,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [ ,,,x,,] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required before ']'",
         type: 'ArrayPattern',
@@ -444,7 +444,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [...horse] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',
@@ -459,7 +459,7 @@ ruleTester.run('array-bracket-even-spacing', rule, {
     {
       code: 'var [...horse ] = y',
       options: ['always'],
-      parserOptions: parserOptions,
+      parserOptions,
       errors: [{
         message: "A space is required after '['",
         type: 'ArrayPattern',

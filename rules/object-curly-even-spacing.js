@@ -35,8 +35,8 @@ module.exports = {
     }
 
     var options = {
-      spaced: spaced,
-      either: either,
+      spaced,
+      either,
       arraysInObjectsException: isOptionSet('arraysInObjects'),
       objectsInObjectsException: isOptionSet('objectsInObjects')
     }
