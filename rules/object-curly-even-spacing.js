@@ -136,7 +136,8 @@ module.exports = {
       var closingCurlyBraceMustBeSpaced =
       (options.arraysInObjectsException && penultimate.value === ']') ||
       (options.objectsInObjectsException && penultimate.value === '}')
-        ? !options.spaced : options.spaced
+        ? !options.spaced
+        : options.spaced
 
       // we only care about evenly spaced things
       if (options.either) {

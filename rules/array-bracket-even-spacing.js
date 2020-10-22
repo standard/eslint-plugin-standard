@@ -143,13 +143,15 @@ module.exports = {
       (options.objectsInArraysException && second.value === '{') ||
       (options.arraysInArraysException && second.value === '[') ||
       (options.singleElementException && node.elements.length === 1)
-        ? !options.spaced : options.spaced
+        ? !options.spaced
+        : options.spaced
 
       var closingBracketMustBeSpaced =
       (options.objectsInArraysException && penultimate.value === '}') ||
       (options.arraysInArraysException && penultimate.value === ']') ||
       (options.singleElementException && node.elements.length === 1)
-        ? !options.spaced : options.spaced
+        ? !options.spaced
+        : options.spaced
 
       // we only care about evenly spaced things
       if (options.either) {
