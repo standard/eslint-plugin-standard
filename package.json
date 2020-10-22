@@ -2,7 +2,11 @@
   "name": "eslint-plugin-standard",
   "description": "ESlint Plugin for the Standard Linter",
   "version": "4.0.2",
-  "author": "Jamund Ferguson <jamund@gmail.com>",
+  "author": {
+    "name": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org"
+  },
   "bugs": {
     "url": "https://github.com/standard/eslint-plugin-standard/issues"
   },
@@ -28,5 +32,19 @@
   },
   "peerDependencies": {
     "eslint": ">=5.0.0"
-  }
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/feross"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/feross"
+    },
+    {
+      "type": "consulting",
+      "url": "https://feross.org/support"
+    }
+  ]
 }
