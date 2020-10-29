@@ -20,8 +20,8 @@ module.exports = {
   },
 
   create: function (context) {
-    var spaced = context.options[0] === 'always'
-    var either = context.options[0] === 'either'
+    const spaced = context.options[0] === 'always'
+    const either = context.options[0] === 'either'
 
     /**
      * Determines whether an option is set, relative to the spacing option.
@@ -34,7 +34,7 @@ module.exports = {
       return context.options[1] != null ? context.options[1][option] === !spaced : false
     }
 
-    var options = {
+    const options = {
       either,
       spaced,
       singleElementException: isOptionSet('singleValue'),
@@ -119,8 +119,8 @@ module.exports = {
      * @returns {boolean}
      */
     function isEvenlySpacedAndNotTooLong (node, start, end) {
-      var expectedSpace = start[1].range[0] - start[0].range[1]
-      var endSpace = end[1].range[0] - end[0].range[1]
+      const expectedSpace = start[1].range[0] - start[0].range[1]
+      const endSpace = end[1].range[0] - end[0].range[1]
       return endSpace === expectedSpace && endSpace <= 1
     }
 
@@ -134,19 +134,19 @@ module.exports = {
         return
       }
 
-      var first = context.getFirstToken(node)
-      var second = context.getFirstToken(node, 1)
-      var penultimate = context.getLastToken(node, 1)
-      var last = context.getLastToken(node)
+      const first = context.getFirstToken(node)
+      const second = context.getFirstToken(node, 1)
+      const penultimate = context.getLastToken(node, 1)
+      const last = context.getLastToken(node)
 
-      var openingBracketMustBeSpaced =
+      const openingBracketMustBeSpaced =
       (options.objectsInArraysException && second.value === '{') ||
       (options.arraysInArraysException && second.value === '[') ||
       (options.singleElementException && node.elements.length === 1)
         ? !options.spaced
         : options.spaced
 
-      var closingBracketMustBeSpaced =
+      const closingBracketMustBeSpaced =
       (options.objectsInArraysException && penultimate.value === '}') ||
       (options.arraysInArraysException && penultimate.value === ']') ||
       (options.singleElementException && node.elements.length === 1)

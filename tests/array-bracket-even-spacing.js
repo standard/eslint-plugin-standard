@@ -9,15 +9,15 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var RuleTester = require('eslint').RuleTester
-var rule = require('../rules/array-bracket-even-spacing')
-var parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
+const RuleTester = require('eslint').RuleTester
+const rule = require('../rules/array-bracket-even-spacing')
+const parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 ruleTester.run('array-bracket-even-spacing', rule, {
   valid: [
 

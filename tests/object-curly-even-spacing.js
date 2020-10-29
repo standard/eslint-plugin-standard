@@ -10,15 +10,15 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var RuleTester = require('eslint').RuleTester
-var rule = require('../rules/object-curly-even-spacing')
-var parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
+const RuleTester = require('eslint').RuleTester
+const rule = require('../rules/object-curly-even-spacing')
+const parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 ruleTester.run('object-curly-even-spacing', rule, {
   valid: [
 

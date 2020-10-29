@@ -9,16 +9,16 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var RuleTester = require('eslint').RuleTester
-var rule = require('../rules/computed-property-even-spacing')
+const RuleTester = require('eslint').RuleTester
+const rule = require('../rules/computed-property-even-spacing')
 
-var parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
+const parserOptions = { ecmaVersion: 2018, sourceType: 'module' }
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 ruleTester.run('computed-property-even-spacing', rule, {
   valid: [
 

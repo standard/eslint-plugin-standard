@@ -17,8 +17,8 @@ module.exports = {
   },
 
   create: function (context) {
-    var propertyNameMustBeSpaced = context.options[0] === 'always' // default is "never"
-    var propertyNameMustBeEven = context.options[0] === 'even' // default is "never"
+    const propertyNameMustBeSpaced = context.options[0] === 'always' // default is "never"
+    const propertyNameMustBeEven = context.options[0] === 'even' // default is "never"
 
     // --------------------------------------------------------------------------
     // Helpers
@@ -100,13 +100,13 @@ module.exports = {
           return
         }
 
-        var property = node[propertyName]
+        const property = node[propertyName]
 
-        var before = context.getTokenBefore(property)
-        var first = context.getFirstToken(property)
-        var last = context.getLastToken(property)
-        var after = context.getTokenAfter(property)
-        var startSpace, endSpace
+        const before = context.getTokenBefore(property)
+        const first = context.getFirstToken(property)
+        const last = context.getLastToken(property)
+        const after = context.getTokenAfter(property)
+        let startSpace, endSpace
 
         if (propertyNameMustBeEven) {
           if (!isSameLine(before, after)) {

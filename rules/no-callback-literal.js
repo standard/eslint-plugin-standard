@@ -15,6 +15,7 @@
  * @returns {boolean}       True if there is a chance it contains an Error obj
  */
 function couldBeError (node) {
+  let exprs
   switch (node.type) {
     case 'Identifier':
     case 'CallExpression':
@@ -28,7 +29,7 @@ function couldBeError (node) {
       return couldBeError(node.right)
 
     case 'SequenceExpression':
-      var exprs = node.expressions
+      exprs = node.expressions
       return exprs.length !== 0 && couldBeError(exprs[exprs.length - 1])
 
     case 'LogicalExpression':
@@ -54,7 +55,7 @@ module.exports = {
   },
 
   create: function (context) {
-    var callbackNames = context.options[0] || ['callback', 'cb']
+    const callbackNames = context.options[0] || ['callback', 'cb']
 
     function isCallback (name) {
       return callbackNames.indexOf(name) > -1
@@ -63,8 +64,8 @@ module.exports = {
     return {
 
       CallExpression: function (node) {
-        var errorArg = node.arguments[0]
-        var calleeName = node.callee.name
+        const errorArg = node.arguments[0]
+        const calleeName = node.callee.name
 
         if (errorArg && !couldBeError(errorArg) && isCallback(calleeName)) {
           context.report(node, 'Unexpected literal in error position of callback.')

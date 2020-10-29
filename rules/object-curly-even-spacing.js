@@ -20,8 +20,8 @@ module.exports = {
   },
 
   create: function (context) {
-    var spaced = context.options[0] === 'always'
-    var either = context.options[0] === 'either'
+    const spaced = context.options[0] === 'always'
+    const either = context.options[0] === 'either'
 
     /**
      * Determines whether an option is set, relative to the spacing option.
@@ -34,7 +34,7 @@ module.exports = {
       return context.options[1] != null ? context.options[1][option] === !spaced : false
     }
 
-    var options = {
+    const options = {
       spaced,
       either,
       arraysInObjectsException: isOptionSet('arraysInObjects'),
@@ -118,8 +118,8 @@ module.exports = {
      * @returns {boolean}
      */
     function isEvenlySpacedAndNotTooLong (node, start, end) {
-      var expectedSpace = start[1].range[0] - start[0].range[1]
-      var endSpace = end[1].range[0] - end[0].range[1]
+      const expectedSpace = start[1].range[0] - start[0].range[1]
+      const endSpace = end[1].range[0] - end[0].range[1]
       return endSpace === expectedSpace && endSpace <= 1
     }
 
@@ -133,7 +133,7 @@ module.exports = {
      * @returns {void}
      */
     function validateBraceSpacing (node, first, second, penultimate, last) {
-      var closingCurlyBraceMustBeSpaced =
+      const closingCurlyBraceMustBeSpaced =
       (options.arraysInObjectsException && penultimate.value === ']') ||
       (options.objectsInObjectsException && penultimate.value === '}')
         ? !options.spaced
@@ -186,13 +186,13 @@ module.exports = {
           return
         }
 
-        var firstSpecifier = node.properties[0]
-        var lastSpecifier = node.properties[node.properties.length - 1]
+        const firstSpecifier = node.properties[0]
+        const lastSpecifier = node.properties[node.properties.length - 1]
 
-        var first = context.getTokenBefore(firstSpecifier)
-        var second = context.getFirstToken(firstSpecifier)
-        var penultimate = context.getLastToken(lastSpecifier)
-        var last = context.getTokenAfter(lastSpecifier)
+        const first = context.getTokenBefore(firstSpecifier)
+        const second = context.getFirstToken(firstSpecifier)
+        let penultimate = context.getLastToken(lastSpecifier)
+        let last = context.getTokenAfter(lastSpecifier)
 
         // support trailing commas
         if (last.value === ',') {
@@ -205,15 +205,15 @@ module.exports = {
 
       // import {y} from 'x'
       ImportDeclaration: function (node) {
-        var firstSpecifier = node.specifiers[0]
-        var lastSpecifier = node.specifiers[node.specifiers.length - 1]
+        const firstSpecifier = node.specifiers[0]
+        const lastSpecifier = node.specifiers[node.specifiers.length - 1]
 
         // don't do anything for namespace or default imports
         if (firstSpecifier && lastSpecifier && firstSpecifier.type === 'ImportSpecifier' && lastSpecifier.type === 'ImportSpecifier') {
-          var first = context.getTokenBefore(firstSpecifier)
-          var second = context.getFirstToken(firstSpecifier)
-          var penultimate = context.getLastToken(lastSpecifier)
-          var last = context.getTokenAfter(lastSpecifier)
+          const first = context.getTokenBefore(firstSpecifier)
+          const second = context.getFirstToken(firstSpecifier)
+          const penultimate = context.getLastToken(lastSpecifier)
+          const last = context.getTokenAfter(lastSpecifier)
 
           validateBraceSpacing(node, first, second, penultimate, last)
         }
@@ -225,12 +225,12 @@ module.exports = {
           return
         }
 
-        var firstSpecifier = node.specifiers[0]
-        var lastSpecifier = node.specifiers[node.specifiers.length - 1]
-        var first = context.getTokenBefore(firstSpecifier)
-        var second = context.getFirstToken(firstSpecifier)
-        var penultimate = context.getLastToken(lastSpecifier)
-        var last = context.getTokenAfter(lastSpecifier)
+        const firstSpecifier = node.specifiers[0]
+        const lastSpecifier = node.specifiers[node.specifiers.length - 1]
+        const first = context.getTokenBefore(firstSpecifier)
+        const second = context.getFirstToken(firstSpecifier)
+        const penultimate = context.getLastToken(lastSpecifier)
+        const last = context.getTokenAfter(lastSpecifier)
 
         validateBraceSpacing(node, first, second, penultimate, last)
       },
@@ -241,10 +241,10 @@ module.exports = {
           return
         }
 
-        var first = context.getFirstToken(node)
-        var second = context.getFirstToken(node, 1)
-        var penultimate = context.getLastToken(node, 1)
-        var last = context.getLastToken(node)
+        const first = context.getFirstToken(node)
+        const second = context.getFirstToken(node, 1)
+        const penultimate = context.getLastToken(node, 1)
+        const last = context.getLastToken(node)
 
         validateBraceSpacing(node, first, second, penultimate, last)
       }

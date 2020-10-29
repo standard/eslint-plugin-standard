@@ -9,14 +9,14 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var RuleTester = require('eslint').RuleTester
-var rule = require('../rules/no-callback-literal')
+const RuleTester = require('eslint').RuleTester
+const rule = require('../rules/no-callback-literal')
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester()
 ruleTester.run('no-callback-literal', rule, {
   valid: [
 
