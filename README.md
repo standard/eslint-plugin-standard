@@ -9,6 +9,8 @@
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
+### Deprecated: This package isn't used by `standard` anymore, as of `standard` v16. See: https://github.com/standard/standard/issues/1316
+
 ESlint Rules for the Standard Linter
 
 ### Usage
