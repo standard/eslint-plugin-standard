@@ -49,6 +49,7 @@ function couldBeError (node) {
 
 module.exports = {
   meta: {
+    type: 'suggestion',
     docs: {
       url: 'https://github.com/standard/eslint-plugin-standard#rules-explanations'
     }
