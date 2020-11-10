@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-standard",
   "description": "ESlint Plugin for the Standard Linter",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
