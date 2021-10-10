@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-standard",
-  "description": "ESlint Plugin for the Standard Linter",
+  "description": "ESLint Plugin for the Standard Linter",
   "version": "5.0.0",
   "author": {
     "name": "Feross Aboukhadijeh",
@@ -9,12 +9,6 @@
   },
   "bugs": {
     "url": "https://github.com/standard/eslint-plugin-standard/issues"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^7.0.0",
-    "mocha": "^6.2.0",
-    "standard": "*"
   },
   "homepage": "https://github.com/standard/eslint-plugin-standard#readme",
   "keywords": [
@@ -30,8 +24,17 @@
   "scripts": {
     "test": "standard && mocha tests/"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "mocha": "^6.2.3",
+    "standard": "*"
+  },
   "peerDependencies": {
     "eslint": ">=5.0.0"
+  },
+  "engines": {
+    "node": ">=6.14.0"
   },
   "funding": [
     {
